@@ -1,0 +1,11 @@
+framework module Trackflow {
+  umbrella header "Trackflow.h"
+
+  export *
+  module * { export * }
+}
+
+module Trackflow.Swift {
+    header "Trackflow-Swift.h"
+    requires objc
+}

@@ -1,0 +1,126 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
+// swift-module-flags: -target i386-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Trackflow
+import SystemConfiguration.CaptiveNetwork
+import Foundation
+import QuartzCore
+import Swift
+import SystemConfiguration
+@_exported import Trackflow
+import UIKit
+@_hasMissingDesignatedInitializers public class TFConstants {
+  public static let TRACKFLOW_ENDPOINT: Swift.String
+  public static let SOCKET_ON_CONNECT: Swift.String
+  public static let SOCKET_ON_ERROR: Swift.String
+  public static let SOCKET_ON_ACK: Swift.String
+  public static let SOCKET_ON_SCREENSHOTREQ: Swift.String
+  public static let SOCKET_ON_ASYNCSTORAGEREQ: Swift.String
+  public static let SOCKET_ON_DEVICEINFOREQ: Swift.String
+  public static let SOCKET_ON_LOCATIONOREQ: Swift.String
+  public static let SOCKET_ON_PERMISSIONREQ: Swift.String
+  public static let SOCKET_SEND_DEVICE_INIT: Swift.String
+  public static let SOCKET_SEND_LOG_INFO: Swift.String
+  public static let SOCKET_SEND_PERMISSION: Swift.String
+  public static let SOCKET_SEND_MEMUSAGE: Swift.String
+  public static let SOCKET_SEND_SCREENSHOT: Swift.String
+  public static let SOCKET_SEND_ASYNCSTORAGE: Swift.String
+  public static let SOCKET_SEND_DEVICEINFO: Swift.String
+  public static let SOCKET_SEND_LOCATION: Swift.String
+  public static var isScreenShotReqEnabled: Swift.Bool
+  public static var isPermissionsEnabled: Swift.Bool
+  public static var isAsyncStorageReq: Swift.Bool
+  public static var isDeviceInfoReq: Swift.Bool
+  public static var isAutomaticScreenshotEnabled: Swift.Bool
+  public static var isShakeDeviceEnabled: Swift.Bool
+  public static var isAPILogEnabled: Swift.Bool
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class TFUtils : ObjectiveC.NSObject {
+  public static let shared: Trackflow.TFUtils
+  public func getMinutesDifferenceFromTwoDates(start: Foundation.Date, end: Foundation.Date) -> Swift.Int
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class TFLog : ObjectiveC.NSObject {
+  public static let shared: Trackflow.TFLog
+  public func showErrorLog(errorMsg: Swift.String)
+  public func showMessage(msg: Swift.String)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class TFBuild : ObjectiveC.NSObject {
+  public static let shared: Trackflow.TFBuild
+  @objc override dynamic public init()
+  public func getBuildVersion() -> Swift.String
+  public func getBuildNumber() -> Swift.String
+  public func getAppBundle() -> Swift.String
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class TFPermissionManager : ObjectiveC.NSObject {
+  public static let shared: Trackflow.TFPermissionManager
+  public func getPermissionList() -> [Swift.String : Any]
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class TFCaptureManager : ObjectiveC.NSObject {
+  public static let shared: Trackflow.TFCaptureManager
+  public func capture() -> Swift.String
+  @objc deinit
+}
+public enum TFTrackingOptions : Swift.String {
+  case shakeToCapture
+  case autoCapture
+  case permissions
+  case screenShotReqFromWeb
+  case asyncStorage
+  case deviceInfo
+  case sendAPILog
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class TFManager : ObjectiveC.NSObject {
+  public static let shared: Trackflow.TFManager
+  @objc override dynamic public init()
+  public func start(apiKey: Swift.String)
+  public func startTrackingWithOptions(apiKey: Swift.String, with: [Trackflow.TFTrackingOptions])
+  public func getQueryDict(apiKey: Swift.String) -> [Swift.String : Swift.String]
+  public func sendNetworkLog(log: Swift.String)
+  public func logAsyncStorage(asyncstorge: Swift.String)
+  public func getDetails()
+  public func getTrackflowVersion() -> Swift.String
+  public func captureScreenshot() -> Swift.String
+  public func getPermission()
+  public func initDeviceInfo() -> Foundation.NSMutableDictionary
+  public func getInitInfo() -> Foundation.NSMutableDictionary
+  public func getDeviceInfo() -> Foundation.NSMutableDictionary
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class TFDeviceManager : ObjectiveC.NSObject {
+  public static let shared: Trackflow.TFDeviceManager
+  public func getDeviceId() -> Swift.String
+  public func getDeviceModel() -> Swift.String
+  public func getDeviceName() -> Swift.String
+  public func getWiFiSsid() -> Swift.String
+  public func getInterfaces() -> Swift.Bool
+  public func getIPAddress() -> Swift.String?
+  public func batteryStatus() -> Swift.String
+  public func getLocation()
+  public func getDeviceToken() -> Swift.String
+  public func getTotalDeviceMemory() -> Swift.String
+  public func getDeviceProcessorCount() -> Swift.String
+  public func getOSInfo() -> Swift.String
+  public func getOrientation() -> Swift.String
+  public func getIsLowPowerMode() -> Swift.Bool
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class TFPlistManager : ObjectiveC.NSObject {
+  public static let shared: Trackflow.TFPlistManager
+  final public let infoPlistDict: [Swift.String : Any]?
+  public func getInfoPlistValue(withKey key: Swift.String) -> Swift.String?
+  public func getInfoPlist() -> [Swift.String : Any]
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Trackflow.TFTrackingOptions : Swift.Equatable {}
+extension Trackflow.TFTrackingOptions : Swift.Hashable {}
+extension Trackflow.TFTrackingOptions : Swift.RawRepresentable {}
