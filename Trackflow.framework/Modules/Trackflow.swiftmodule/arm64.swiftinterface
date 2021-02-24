@@ -64,25 +64,21 @@ import UIKit
   public func capture() -> Swift.String
   @objc deinit
 }
-public enum TFTrackingOptions : Swift.String {
-  case shakeToCapture
-  case autoCapture
-  case permissions
-  case screenShotReqFromWeb
-  case asyncStorage
-  case deviceInfo
-  case sendAPILog
-  public typealias RawValue = Swift.String
-  public init?(rawValue: Swift.String)
-  public var rawValue: Swift.String {
-    get
-  }
+@_hasMissingDesignatedInitializers public class TFTrackingOptions {
+  public static let shakeToCapture: Swift.String
+  public static let autoCapture: Swift.String
+  public static let permissions: Swift.String
+  public static let screenShotReqFromWeb: Swift.String
+  public static let asyncStorage: Swift.String
+  public static let deviceInfo: Swift.String
+  public static let sendAPILog: Swift.String
+  @objc deinit
 }
 @objc @_inheritsConvenienceInitializers public class TFManager : ObjectiveC.NSObject {
   public static let shared: Trackflow.TFManager
   @objc override dynamic public init()
   public func start(apiKey: Swift.String)
-  public func startTrackingWithOptions(apiKey: Swift.String, with: [Trackflow.TFTrackingOptions])
+  public func startTrackingWithOptions(apiKey: Swift.String, with: [Swift.String])
   public func getQueryDict(apiKey: Swift.String) -> [Swift.String : Swift.String]
   public func sendNetworkLog(log: Swift.String)
   public func logAsyncStorage(asyncstorge: Swift.String)
@@ -121,6 +117,3 @@ public enum TFTrackingOptions : Swift.String {
   @objc override dynamic public init()
   @objc deinit
 }
-extension Trackflow.TFTrackingOptions : Swift.Equatable {}
-extension Trackflow.TFTrackingOptions : Swift.Hashable {}
-extension Trackflow.TFTrackingOptions : Swift.RawRepresentable {}
