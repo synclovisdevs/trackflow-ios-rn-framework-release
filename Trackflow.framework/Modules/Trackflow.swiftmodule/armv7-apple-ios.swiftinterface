@@ -26,6 +26,8 @@ import UIKit
   public static let SOCKET_SEND_ASYNCSTORAGE: Swift.String
   public static let SOCKET_SEND_DEVICEINFO: Swift.String
   public static let SOCKET_SEND_LOCATION: Swift.String
+  public static let SOCKET_AUTO_CAPTURE: Swift.String
+  public static let SOCKET_SHAKE_DEVICE: Swift.String
   public static var isScreenShotReqEnabled: Swift.Bool
   public static var isPermissionsEnabled: Swift.Bool
   public static var isAsyncStorageReq: Swift.Bool
