@@ -67,13 +67,13 @@ import UIKit
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class TFTrackingOptions {
-  public static let shakeToCapture: Swift.String
-  public static let autoCapture: Swift.String
-  public static let permissions: Swift.String
-  public static let screenShotReqFromWeb: Swift.String
-  public static let asyncStorage: Swift.String
-  public static let deviceInfo: Swift.String
-  public static let sendAPILog: Swift.String
+  public static let SHAKE: Swift.String
+  public static let AUTO_CAPTURE: Swift.String
+  public static let PERMISSIONS: Swift.String
+  public static let SCREENSHOT_WEB_REQUEST: Swift.String
+  public static let ASYNCSTORAGE: Swift.String
+  public static let DEVICEINFO: Swift.String
+  public static let NETWORKLOGS: Swift.String
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers public class TFManager : ObjectiveC.NSObject {
@@ -91,6 +91,16 @@ import UIKit
   public func initDeviceInfo() -> Foundation.NSMutableDictionary
   public func getInitInfo() -> Foundation.NSMutableDictionary
   public func getDeviceInfo() -> Foundation.NSMutableDictionary
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class TFTrackingConstants {
+  public static let SHAKE: Swift.String
+  public static let AUTO_CAPTURE: Swift.String
+  public static let PERMISSIONS: Swift.String
+  public static let SCREENSHOT_WEB_REQUEST: Swift.String
+  public static let ASYNCSTORAGE: Swift.String
+  public static let DEVICEINFO: Swift.String
+  public static let NETWORKLOGS: Swift.String
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class TFDeviceManager : ObjectiveC.NSObject {
